@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Таймер</title>
+  </head>
+
+  <body>
+    <span class="span"></span>
+    <script>
+      function countTo(count, ms, className) {
+        var span = document.querySelector(className)
+        var num = 0;
+
+        function timer() {
+          var i = setTimeout(function() {
+            num += 1;
+            span.innerHTML = num;
+            timer();
+          }, ms);
+          if (num == count) {
+            clearInterval(i);
+          }
+        }
+        timer();
+      }
+      countTo(3000, 1, ".span");
+
+    </script>
+  </body>
+
+</html>
